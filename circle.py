@@ -1,7 +1,6 @@
 from __future__ import annotations
 import math
 
-
 class Circle:
 
     def __init__(self, radius):
@@ -19,7 +18,19 @@ class Circle:
         area of this circle and another circle.
         Since area is pi*r**2, the radii of the 3 circles
         should form a Pythagorean triple (r1^2 + r2^2 = r3^2)
+
+        >>> circle1 = Circle(3)
+        >>> circle2 = Circle(4)
+        >>> circle3 = circle1.add_area(circle2)
+        >>> circle3.get_radius()
+        5.0
+        >>> circle1 = Circle(-1)
+        Traceback (most recent call last):
+        ...
+        ValueError: radius must be non-negative
         """
+
+
         r1 = self.get_radius()
         r2 = circle.get_radius()
         # this is important, so show the operation in a rounded-box
@@ -39,3 +50,7 @@ class Circle:
         return f"Circle({self.radius})"
     
     __repr__ = __str__
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
