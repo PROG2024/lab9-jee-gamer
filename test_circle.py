@@ -14,6 +14,10 @@ import math
 class Add_area_test(unittest.TestCase):
 
     def test_add_area_two_positive(self):
+        """
+        Adding the circle together and comparing the area and radius
+        with the expected values
+        """
         circle1 = Circle(10)
         circle2 = Circle(10)
         expected_area = (math.pi*10*10)*2
@@ -25,6 +29,10 @@ class Add_area_test(unittest.TestCase):
         self.assertEqual(expected_radius, circle3.get_radius())
 
     def test_add_area_radius_0(self):
+        """
+        Testing if making the circle with radius 0 and adding it together
+        will cause any error or incorrect results
+        """
         circle1 = Circle(0)
         circle2 = Circle(0)
         expected_area = 0
@@ -44,5 +52,10 @@ class Add_area_test(unittest.TestCase):
         self.assertEqual(expected_radius, circle3.get_radius())
 
     def test_creating_negative_circle(self):
+        """
+        Test if creating circle with negative radius will raise
+        ValueError or not
+        """
+
         with self.assertRaises(ValueError):
             circle1 = Circle(-1)
