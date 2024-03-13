@@ -16,7 +16,7 @@ class Singleton_Test(unittest.TestCase):
         """
         Try to make two instance of the class and compare the instance
         compare the values
-        compare the id
+        and compare the id
         """
 
         c1 = Counter()
