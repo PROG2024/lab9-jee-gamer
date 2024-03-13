@@ -14,28 +14,34 @@ class Singleton_Test(unittest.TestCase):
 
     def test_same_instance(self):
         """
-        Try to make two instance of the class and compare it
+        Try to make two instance of the class and compare the instance
+        compare the values
+        compare the id
         """
 
         c1 = Counter()
         c2 = Counter()
         self.assertEqual(c1, c2)
 
-        value1 = c1.increment() + 1
-        value2 = c2.increment()
+        value1 = c1.increment()
+        value2 = c2.count
 
         self.assertEqual(value1, value2)
+
+        self.assertEqual(id(c1), id(c2))
 
     def test_not_reset_to_0(self):
         """
         Incrementing the instance and in calling it again and then
-        Incrementing it again then compare the values to see if value reset
+        compare the values to see if value reset
         """
 
         c1 = Counter()
-        value1 = c1.increment()
+        value1 = c1.increment()  # Should be 1
 
         c1 = Counter()
-        value2 = c1.increment()
+        value2 = c1.count  # Should be 1
 
-        self.assertEqual(value1, value2-1)
+        # If it's reset the value2 should be 0
+
+        self.assertEqual(value1, value2)
